@@ -1,0 +1,1883 @@
+@import url('https://fonts.googleapis.com/css?family=Pinyon+Script&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.App {
+  width: 100%;
+  height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  color: #E8E8E8;
+  background-color: #1c1b1b;
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+  color: #E8E8E8;
+}
+
+
+$color: (
+  White: #E5E5E5,
+  Yellow: #958A52,
+  Grey: #272727,
+  Black: #1c1b1b,
+  Red: #B72B2B
+);
+
+@function color($colorName){
+  @return map-get($color, $colorName )
+};
+
+
+  .Nav {
+    width: 100%;
+    height: 110px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 900;
+    display: flex;
+    justify-content: center;
+
+    .Nav-InnerWrap {
+      width: 900px;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .NavItem {
+        font-size: 13px;
+        font-weight: 400;
+        cursor: pointer;
+      }
+
+          .MenuTabActive {
+            border-bottom: 1px solid color(Yellow);
+          }
+          .BookingTabActive {
+            border-bottom: 1px solid color(Yellow);
+          }
+          .StoryTabActive {
+            border-bottom: 1px solid color(Yellow);
+          }
+          .ExperienceTabActive {
+            border-bottom: 1px solid color(Yellow);
+          }
+
+      .Logo {
+        font-family: 'Pinyon Script', cursive;
+        font-size: 56px;
+        font-weight:500;
+        transition: font-size 1s ease-in-out;
+      }
+
+      .Mobile-Nav-MenuIcon {
+        width: 39px;
+        height: 21px;
+        position: relative;
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+
+        .Mobile-Nav-MenuIcon-Bar {
+          width: 100%;
+          height: 3px;
+          background-color: color(White);
+        }
+      }
+    }
+  }
+
+  .NavActiveTab {
+    border-bottom: 1px solid color(Yellow);
+  }
+
+  @media screen and (max-width: 950px){
+    #Nav-InnerWrap {
+      width: 90%;
+    }
+    #Mobile-Nav-MenuIcon {
+      display: flex;
+    }
+    #NavLink {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 650px){
+    #Logo {
+      font-size: 42px;
+    }
+  }
+
+  @media screen and (max-height: 500px) {
+    #NavLink {
+      display: none;
+    }
+    #Mobile-Nav-MenuIcon {
+      display: flex;
+    }
+  }
+
+
+.SideNav {
+  width: 500px;
+  height: 100vh;
+  position: fixed;
+  display: none;
+  right: 0;
+  top: 0;
+  background-color: color(White);
+  transform: translateX(100%);
+  transition: all .3s ease-in-out;
+  z-index: 1002;
+
+  .SideNav-InnerWrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 250px 150px;
+    padding-bottom: 350px;
+
+
+    .SideNav-Item {
+      color: color(Black);
+      font-size: 30px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .SideNav-Email {
+      color: color(Black);
+      font-size: 20px;
+      font-weight: 500;
+      position: absolute;
+      bottom: 0;
+      margin-bottom: 130px;
+
+    }
+  }
+
+  .ExitSideNav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 40px;
+    margin-top: 30px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    
+
+    .ExitSideNav-InnerWrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .ExitSideNav-Bar {
+      width: 100%;
+      height: 3px;
+      background-color: color(Black);
+      position: absolute;
+      
+      }
+      #Bar1 {
+        transform: rotate(45deg);
+      }
+      #Bar2 {
+        transform: rotate(-45deg);
+      }
+
+    }
+
+    
+
+  }
+}
+
+.SideNavOpen {
+  transform: translateX(0);
+  
+}
+
+@media screen and (max-width: 950px){
+  #SideNav {
+    display: block;
+  }
+}
+
+@media screen and (max-height: 500px){
+  #SideNav {
+    display: block;
+  }
+  #SideNav-Item {
+    font-size: 18px;
+  }
+  #SideNav-InnerWrap {
+    padding-bottom: 100px;
+  }
+}
+
+@media screen and (max-width: 550px){
+  #SideNav {
+    width: 100%;
+  }
+}
+
+@media screen and (max-height: 900px){
+  #SideNav-InnerWrap {
+    padding: 150px 100px;
+    padding-bottom: 200px;
+  }
+}
+
+@media screen and (max-height: 850px){
+  #SideNav-InnerWrap {
+    padding: 150px 100px;
+    padding-bottom: 245px;
+  }
+}
+@media screen and (max-height: 700px){
+  #SideNav-Email {
+    margin-bottom: 50px;
+  }
+}
+
+
+  .Footer {
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-left: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 800;
+
+    .Footer-InnerWrap {
+      width: 55%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .FooterItem {
+      font-size: 12px;
+      font-weight: 300;
+    }
+
+    .Footer-ScrollWrap {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .Footer-ScrollText {
+        font-size: 13px;
+      font-weight: 400;
+      margin-bottom: 5px;
+      }
+      
+      
+    }
+  }
+
+  @media screen and (max-width: 950px){
+    #Footer {
+      width: 100%;
+      justify-content: center;
+      margin-left: 0;
+    }
+
+    #Footer-InnerWrap {
+      width: 90%;
+    }
+  }
+
+  @media screen and (max-width: 540px) {
+    #FooterItem {
+      display: none;
+    }
+    #Footer-InnerWrap {
+      justify-content: center;
+    }
+    #Footer-ScrollWrap {
+      display: flex;
+    }
+  }
+
+
+.SocialTags {
+  position: fixed;
+  right: 0;
+  bottom : 0;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 50px;
+  margin-bottom: 7%;
+  height: 120px;
+  z-index: 700;
+
+}
+
+.MobileSocialTags {
+      width: 150px;
+      position: absolute;
+      bottom: 0;
+      margin-bottom: 180px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+}
+
+.Overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: color(Black);
+  opacity: .5;
+  z-index: 1001;
+}
+
+@media screen and (max-width: 950px){
+  #SocialTags {
+    display: none;
+  }
+}
+
+@media screen and (max-height: 700px){
+  #MobileSocialTags {
+    margin-bottom: 100px;
+  }
+}
+
+
+          .Landing {
+            width: 100%;
+            height: 100%;
+
+
+            /* Desktop */
+            .Desktop-Landing {
+              width: 100%;
+              height: 100vh;
+              position: relative;
+              background-image: url('./Images/BGSaporiLanding1.jpg');
+              background-repeat: no-repeat;
+              background-size: cover;
+              background-position: center;
+              
+            }
+
+            /*Mobile*/
+            .Mobile-Landing {
+              width: 100%;
+              height: 100%;
+              display: none;
+
+
+              /* MobileLargeSections*/
+              .MobileLandingSectionLarge {
+                width: 100%;
+                height: 100vh;
+                padding: 5%;
+                position: relative;
+              }
+
+                  .MobileLandingSectionLarge1 {
+                    background-image: url('./Images/BGSaporiLanding1.jpg');
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                  }
+
+                  .MobileLandingSectionLarge2 {
+                    background-image: url('./Images/BG-SaporiMobile2.jpg');
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                  }
+
+                  .MobileLandingSectionLarge3 {
+                    background-image: url('./Images/BG-SaporiMobile3.jpg');
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                  }
+
+                  .MobileLandingSectionLarge4 {
+                    background-image: url('./Images/BG-SaporiMobile4.jpg');
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                  }
+
+              .MobileLandingContentWrap {
+                  width: 75%;
+                  Padding-top: 80%;
+                  margin-left: 7%;
+                  
+
+                  .MobileLandingHeader {
+                    font-family: "Baskerville", serif;
+                    font-size: 40px;
+                    font-weight: 500;
+                    margin-bottom: 10px;
+                  }
+
+                  .MobileLandingDescriptionWrap {
+                    width: 100%;
+                    background-color: rgba(120, 118, 118, 0.228);
+                    padding: 8px;
+                    border-radius: 8px;
+                    margin-bottom: 20px;
+
+                    .MobileLandingDescription {
+                      font-size: 16px;
+                      line-height: 25px;
+                    }
+                  }
+
+                  .MobileLandingButton {
+                    background-color: transparent;
+                    border: 1px solid color(White);
+                    // width: 40%;
+                    padding: 0 5px;
+                    height: 30px;
+
+                    .MobileLandingButtonText {
+                      font-size: 16px;
+                      font-weight: 400;
+                      color: color(White);
+                      
+
+                    }
+                  }
+              }
+
+              .MobileLandingSectionsTitle {
+                font-size: 28px;
+                font-weight: 600;
+                margin-bottom: 10px;
+
+              }
+
+              /* MobileSmallSections*/
+              .MobileLandingSectionSmall {
+                width: 100%;
+                background-color: color(Black);
+              }
+              
+            }
+
+          }
+
+              @media screen and (max-width: 700px){
+                #Desktop-Landing {
+                  display: none;
+                }
+                #Mobile-Landing {
+                  display: block;
+                }
+              }
+
+              @media screen and (max-height: 500px){
+                #Desktop-Landing {
+                  display: none;
+                }
+                #Mobile-Landing {
+                  display: block;
+                }
+              }
+
+              @media screen and (max-height: 750px){
+                #MobileLandingContentWrap1 {
+                  padding-top: 40%;
+                }
+              }
+
+              @media screen and (max-height: 500px){
+                #MobileLandingContentWrap1 {
+                  padding-top: 20%;
+                }
+              }
+
+              @media screen and (max-height: 600px){
+                #MobileLandingHeader {
+                  font-size: 30px;
+                }
+                #MobileLandingDescription {
+                  font-size: 14px;
+                  line-height: 18px;
+                }
+               
+                #MobileLandingButtonText {
+                  font-size: 14px;
+                }
+                #MobileLandingContentWrap {
+                  padding-top: 40%;
+                }
+              }
+
+
+
+          .Menu {
+            width: 100%;
+            padding: 10% 20%;
+            background-color: color(Black);
+            position: relative;
+
+            .Menu-Section {
+              width: 100%;
+              height: 100%;
+              display: flex;
+              background-color: color(Black);
+              
+              .Category {
+                width: 100%;
+                height: 100%;
+                padding: 10px;
+
+                .Menu-CategoryTitle {
+                  font-size: 28px;
+                  font-family: "Baskerville", serif;
+                  color: color(Yellow);
+                  font-weight: 400;
+                  margin-bottom: 20px;
+                }
+
+                .MenuItemWrap {
+                  width: 100%;
+
+                  .MenuItem-TopRow {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .MenuItem-Title {
+                      font-size: 18px;
+                      font-weight: 500;
+                      margin-bottom: 5px;
+                    }
+
+                    .MenuItem-Price {
+                      font-size: 16px;
+                      font-weight: 400;
+                    }
+                  }
+
+                  .MenuItem-Description {
+                      font-size: 14px;
+                      font-weight: 400;
+                      margin-bottom: 10px;
+                      line-height: 20px;
+                      padding-left: 10px;
+                    }
+                }
+              }
+            }
+
+            .MenuDisclaimer {
+              margin-top: 50px;
+              text-align: center;
+              font-size: 12px;
+              font-weight: 300;
+            }
+          }
+
+          .Menu-BlockerTop {
+            width: 99%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100px;
+            background-color: color(Black);
+          }
+          .Menu-BlockerBottom {
+            width: 99%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 50px;
+            background-color: #1c1b1b;
+          }
+
+              @media screen and (max-width: 890px){
+                #Menu-Section {
+                  flex-direction: column;
+                }
+                .Menu-Section1 {
+                  margin-top: 15%;
+                }
+              }
+
+              @media screen and (max-width: 470px){
+                #Menu {
+                  padding: 10% 10%;
+                }
+                .Menu-Section1 {
+                  margin-top: 70px;
+                }
+                #Menu-CategoryTitle {
+                  font-size: 25px;
+                }
+                #MenuItem-Title {
+                  font-size: 18px;
+                }
+                #MenuDisclaimer {
+                  margin-top: 20px;
+                  margin-bottom: 50px;
+                  font-size: 16px;
+                }
+              }
+
+
+            .Booking {
+              width: 100%;
+              position: relative;
+
+              .Booking-LandingSection {
+                width: 100%;
+                height: 100vh;
+
+                .BookingTopSpacer {
+                width: 100%;
+                height: 100px;
+                }
+
+                .Booking-Hero {
+                  width: 100%;
+                  height: 50%;
+                  background-image: url('./Images/BG-SaporiBooking.jpg');
+                  background-position: center;
+                  background-size: cover;
+                  background-repeat: no-repeat;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: space-between;
+
+                  .Booking-HeroTitle {
+                    font-size: 32px;
+                    font-family: "Baskerville", serif;
+                    font-weight: 400;
+                    margin-top: 20px;
+                  } 
+
+                  .Booking-HeroOnlineWrap {
+                    text-align: center;
+                    margin-bottom: 40px;
+
+                    .Booking-HeroSubtitle {
+                      font-size: 60px;
+                      margin-bottom: 30px;
+                    }
+
+                    .Booking-HeroBtn {
+                      border: 1px solid color(White);
+                      background-color: transparent;
+                      padding: 5px 10px;
+                      outline: none;
+
+                      .Booking-HeroBtnText {
+                        font-size: 25px;
+                        color: color(White);
+                        font-weight: 400;
+                      }
+                    }
+                  }
+                }
+
+                .Booking-LandingInfo {
+                  width: 100%;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: flex-start;
+                  padding: 10% 20%;
+                  padding-top: 7%;
+
+                  .BookingInfoItem {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: 200px;
+
+                    .Booking-LandingInfo-ItemTitle {
+                      font-family: "Baskerville", serif;
+                      font-weight: 400;
+                      color: color(Yellow);
+                      font-size: 28px;
+                      margin-bottom: 20px;
+                    }
+
+                    .Booking-LandingInfo-ItemText {
+                      font-size: 14px;
+                      margin-bottom: 5px;
+
+                    }
+                  }
+
+
+
+                  .BookingInfo-Hours {
+                    flex: 1.5;
+
+                    .Booking-HoursGridWrap {
+                      width: 70%;
+
+                      .Booking-Hours-Row {
+                      width: 100%;
+                      display: flex;
+                      justify-content: space-between;
+                    }
+                    }
+
+                    
+                  }
+
+
+                }
+              }
+
+              .Booking-BookingSetUp {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding: 20px 0;
+                position: relative;
+                margin-bottom: 30px;
+
+                .Booking-BookingSetUp-BorderTop {
+                  width: 80%;
+                  height: 1px;
+                  position: absolute;
+                  top: 0;
+                  background-color: color(White);
+                }
+
+                .Booking-BookingSetUp-Title {
+                  font-size: 24px;
+                  margin-bottom: 50px;
+                  margin-top: 50px;
+                  font-weight: 400;
+                }
+
+                    .ReservationForm {
+                      text-align: right;
+                      padding-right: 80px;
+
+                      .Form {
+
+                        .Booking-FormRow {
+                          margin-bottom: 50px;
+
+                          .FormLabel {
+                            margin-right: 10px;
+                            font-size: 14px;
+                            font-weight: 400;
+
+                            .Span {
+                              color: color(Red);
+                            }
+                          }
+                          .Booking-Input {
+                            background-color: transparent;
+                            border: none;
+                            color: color(White);
+                            border-bottom: 1px solid color(White);
+                            outline: none;
+                            
+                          }
+                          .Booking-Input::placeholder {
+                            color: color(White);
+                          }
+                        }
+
+                        .Booking-BookingSetUp-Radio {
+                          margin-bottom: 15px;
+
+                          .Booking-BookingSetUp-Radio-Text {
+                            font-size: 14px;
+                            margin-right: 10px;
+                            
+                          }
+                        }
+
+                        .Booking-SubmitBtn {
+                          background-color: transparent;
+                          border: 1px solid color(Yellow);
+                          padding: 10px 25px;
+                          outline: none;
+                          margin-top: 20px;
+
+                          .Booking-SubmitBtn-Text {
+                            color: color(White);
+                            font-size: 16px;
+                            font-weight: 400;
+                            white-space: nowrap;
+                          }
+                        }
+                      }
+                    }
+
+                .Booking-BookingSetUp-BottomSpacer {
+                width: 100%;
+                height: 50px;
+                }
+              }
+            }
+
+            @media screen and (max-width: 900px){
+              #Booking-LandingInfo {
+                padding: 10% 5%;
+              }
+              
+            }
+
+            @media screen and (max-width: 590px){
+              #Booking-HeroSubtitle {
+                font-size: 45px;
+              }
+              #Booking-HeroBtnText {
+                font-size: 20px;
+              }
+              #Booking-LandingSection {
+                height: 100%;
+                margin-bottom: 40px;
+              }
+              #Booking-LandingInfo {
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 30px;
+              }
+              #Booking-Info {
+                margin-bottom: 30px;
+              }
+              #Booking-LandingInfo-ItemTitle {
+                font-size: 23px;
+                white-space: nowrap;
+                margin-bottom: 10px;
+              }
+              #Booking-LandingInfo-ItemText {
+                font-size: 12px;
+              }
+              #Booking-BookingSetUp-BorderTop {
+                display: none;
+              }
+              #ReservationForm {
+                padding-right: 0px;
+              }
+              #Booking-FormRow {
+                padding-right: 50px;
+              }
+              #Booking-SubmitBtn {
+                margin-right: 50px;
+                margin-top: 20px;
+              }
+              #Booking-BookingSetUp-BottomSpacer {
+                display: none;
+              }
+            }
+
+            @media screen and (max-height: 900px){
+              
+              #Booking-BookingSetUp {
+                margin-top: 80px;
+              }
+            }
+
+            @media screen and (max-height: 750px){
+              #Booking-LandingInfo {
+                padding: 5% 20%;
+              }
+            }
+
+            @media screen and (max-height: 500px){
+              #Booking-BookingSetUp-BorderTop {
+                display: none;
+              }
+            }
+
+
+
+            .OurStory {
+              width: 100%;
+              position: relative;
+              padding: 2% 5%;
+              
+            }
+
+            .Discover1 {
+              width: 100%;
+              height: 100vh;
+              display: flex;
+              justify-content: center;
+              align-items: flex-end;
+              position: relative;
+              margin-bottom: 20px;
+
+              .Story-Discover-ImageWrap {
+                width: 35%;
+                height: 80%;
+                position: relative;
+                align-self: center;
+
+                .Story-Discover-ImageFrame {
+                  width: 80%;
+                  height: 100%;
+                  background-color: color(Grey);
+                  position: absolute;
+                }
+
+                .Story-Discover-Image {
+                  width: 90%;
+                  height: 90%;
+                  background-image: url('./Images/Story-Image1.jpg');
+                  background-repeat: no-repeat;
+                  background-size: cover;
+                  background-position: right;
+                  position: absolute;
+                  right: 5%;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.222);
+                }
+              }
+
+              .Story-Discover-TextWrap {
+                width: 40%;
+                height: 100%;
+                margin-left: 5%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .Story-Discover-Header {
+                  font-size: 25px;
+                  font-weight: 400;
+                  font-family: "Baskerville", serif;
+                  color: color(Yellow);
+                  margin-bottom: 5px;
+                }
+
+                .Story-Discover-Title {
+                  font-size: 45px;
+                  margin-bottom: 5px;
+                }
+
+                .Story-Discover-Text {
+                  font-size: 18px;
+                  line-height: 30px;
+                  margin-bottom: 15px;
+                }
+              }
+            }
+
+            .Tradition2 {
+              width: 100%;
+              position: relative;
+              padding: 0 10%;
+              margin-bottom: 60px;
+              
+              .Story-Tradition-ImageWrap {
+                width: 30%;
+                height: 400px;
+                float: right;
+                margin-left: 30px;
+                margin-bottom: 30px;
+                position: relative;
+                
+                .Story-Tradition-ImageFrame {
+                  width: 95%;
+                  height: 95%;
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  background-color: color(Grey);
+                }
+
+                .Story-Tradition-Image {
+                  width: 95%;
+                  height: 95%;
+                  background-image: url('./Images/Story-Image2.jpg');
+                  background-repeat: no-repeat;
+                  background-size: cover;
+                  background-position: right;
+                  position: absolute;
+                  bottom: 0;
+                  left: 0;
+                  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.229);
+                }
+              }
+
+              .Story-Tradition-TextWrap {
+                width: 100%;
+                position: relative;
+
+                .Story-Tradition-Header {
+                  font-size: 25px;
+                  font-weight: 400;
+                  font-family: "Baskerville", serif;
+                  color: color(Yellow);
+                  margin-bottom: 5px;
+                }
+
+                .Story-Tradition-Title {
+                  font-size: 40px;
+                  margin-bottom: 5px;
+                }
+
+                .Story-Tradition-Text {
+                  font-size: 18px;
+                  line-height: 30px;
+                  margin-bottom: 15px;
+                }
+
+              }
+            }
+
+            .Recipes3 {
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              position: relative;
+              margin-bottom: 60px;
+
+              .Story-Recipes-ImageWrap {
+                width: 35%;
+                height: 500px;
+                position: relative;
+                align-self: center;
+
+                .Story-Recipes-ImageFrame {
+                  width: 80%;
+                  height: 100%;
+                  background-color: color(Grey);
+                  position: absolute;
+                }
+
+                .Story-Recipes-Image {
+                  width: 90%;
+                  height: 90%;
+                  background-image: url('./Images/Story-Image3.jpg');
+                  background-repeat: no-repeat;
+                  background-size: cover;
+                  background-position: right;
+                  position: absolute;
+                  right: 5%;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.222);
+                }
+              }
+
+              .Story-Recipes-TextWrap {
+                width: 40%;
+                height: 100%;
+                margin-left: 5%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .Story-Recipes-Header {
+                  font-size: 25px;
+                  font-weight: 400;
+                  font-family: "Baskerville", serif;
+                  color: color(Yellow);
+                  margin-bottom: 5px;
+                }
+
+                .Story-Recipes-Title {
+                  font-size: 45px;
+                  margin-bottom: 5px;
+                }
+
+                .Story-Recipes-Text {
+                  font-size: 18px;
+                  line-height: 30px;
+                  margin-bottom: 15px;
+                }
+              }
+            }
+
+            .Quality4 {
+              width: 100%;
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              margin-bottom: 40px;
+
+              .Story-Quality-ImageWrap {
+                width: 80%;
+                height: 400px;
+                position: relative;
+                margin-bottom: 40px;
+
+                .Story-Quality-ImageFrame {
+                  width: 95%;
+                  height: 90%;
+                  top: 0;
+                  right: 0;
+                  background-color: color(Grey);
+                  position: absolute;
+                }
+
+                .Story-Quality-Image {
+                  width: 97%;
+                  height: 94%;
+                  background-image: url('./Images/Story-Image4.jpg');
+                  background-repeat: no-repeat;
+                  background-size: cover;
+                  background-position: center;
+                  position: absolute;
+                  left: 0;
+                  bottom: 0;
+                  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.222);
+                }
+              }
+
+              .Story-Quality-TextWrap {
+                width: 85%;
+                height: 100%;
+                margin-left: 5%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .Story-Quality-Header {
+                  font-size: 25px;
+                  font-weight: 400;
+                  font-family: "Baskerville", serif;
+                  color: color(Yellow);
+                  margin-bottom: 5px;
+                }
+
+                .Story-Quality-Title {
+                  font-size: 45px;
+                  margin-bottom: 5px;
+                }
+
+                .Story-Quality-Text {
+                  font-size: 18px;
+                  line-height: 30px;
+                  margin-bottom: 15px;
+                }
+              }
+            }
+
+            @media screen and (max-width: 1200px){
+              #Story-Discover-ImageWrap {
+                height: 70%;
+              }
+              #Story-Quality-ImageWrap {
+                height: 250px;
+              }
+            }
+
+            @media screen and (max-width: 850px){
+              #Story-Discover-Text {
+                font-size:  14px;
+              }
+              #Story-Tradition-Text {
+                font-size:  14px;
+              }
+              #Story-Recipes-Text {
+                font-size:  14px;
+              }
+              #Story-Quality-Text {
+                font-size:  14px;
+              }
+            }
+
+            @media screen and (max-width: 700px){
+              #Discover1 {
+                flex-direction: column;
+                padding-top: 15%;
+                align-items: center;
+              }
+              #Story-Discover-ImageWrap {
+                height: 200px;;
+                width: 80%;
+                flex: 1;
+                margin-bottom: 20px;
+              }
+              #Story-Discover-TextWrap {
+                flex: 1;
+                width: 100%;
+              }
+              #Tradition2 {
+                padding: 0;
+              }
+              #Story-Tradition-ImageWrap {
+                float: none;
+                width: 85%;
+                height:  300px;
+              }
+              #Recipes3 {
+                flex-direction: column;
+                align-items: center;
+              }
+              #Story-Recipes-ImageWrap {
+                width: 80%;
+                height: 300px;
+                margin-bottom: 40px;
+              }
+              #Story-Recipes-TextWrap {
+                width: 100%;
+              }
+              #Story-Quality-TextWrap {
+                width: 100%;
+              }
+            }
+
+            @media screen and (max-width: 570px){
+              #Story-Discover-ImageWrap {
+                margin-top: 20px;
+              }
+            }
+
+            @media screen and (max-height: 800px){
+              #Story-Discover-Text {
+                line-height: 18px;
+              }
+              #Story-Discover-Title {
+                font-size: 32px;
+              }
+              #Story-Tradition-Text {
+                line-height: 18px;
+              }
+              #Story-Tradition-Title {
+                font-size: 32px;
+              }
+              #Story-Recipes-Text {
+                line-height: 18px;
+              }
+              #Story-Recipes-Title {
+                font-size: 32px;
+              }
+              #Story-Quality-Text {
+                line-height: 18px;
+              }
+              #Story-Quality-Title {
+                font-size: 32px;
+              }
+            }
+
+
+
+            .Experience {
+              width: 100%;
+              position: relative;
+              padding: 100px 10%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+
+              .Exp-NavBacker {
+                width: 100%;
+                height: 100px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: color(Black);
+              }
+
+              .Exp-Hero-Wrap {
+                width: 100%;
+                height: 100vh;
+                max-width: 1300px;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .Exp-HeroImage-Wrap {
+                  width: 100%;
+                  height: 40%;
+                  margin-bottom: 40px;
+
+                  .Exp-HeroImage {
+                    width: 100%;
+                    height: 100%;
+                    background-image: url('./Images/Experience-Hero.jpg');
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+
+                  }
+                }
+              }
+
+              .Exp-Section {
+                  width: 90%;
+                  margin-bottom: 50px;
+                  max-width: 1300px;
+
+                  .Exp-Section-Title {
+                    font-size: 32px;
+                    color: color(Yellow);
+                    font-family: "Baskerville", serif;
+                    font-weight: 300;
+                    margin-bottom: 20px;
+                  }
+
+                  .Exp-Section-Text {
+                    font-size: 16px;
+                    line-height: 26px;
+                    margin-bottom: 10px;
+                  }
+              }
+
+                  .Exp-Hero-Scroll {
+                    margin-top: 30px;
+                    font-size: 12px;
+                  }
+
+
+
+              .Exp-Section3 {
+                display: flex;
+                width: 90%;
+
+                .Exp-Section3-Image {
+                width: 20%;
+                height: 400px;
+                flex: 2;
+                background-image: url('./Images/Experience-Image.jpg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                margin-right: 5%;
+                }
+
+                .Exp-Section3-Content {
+                  flex: 5;
+                }
+              }
+
+              
+            }
+
+            @media screen and (max-width: 1030px){
+              #Exp-Hero-Scroll {
+                margin-top: 0px;
+              }
+            }
+            @media screen and (max-width: 760px){
+            #Exp-Hero-Scroll {
+              display: none;
+            }
+            }
+            @media screen and (max-width: 650px){
+            #Exp-Section3 {
+              display: block;
+            }
+            #Exp-Section3-Image {
+              width: 100%;
+              height: 200px;
+              margin-bottom: 50px;
+              }
+            }
+            @media screen and (max-width: 500px){
+              #Exp-Section-Title {
+                font-size: 28px;
+              }
+              #Exp-Section-Text {
+                font-size: 14px;
+                line-height: 18px;
+              }
+            }
+
+
+  .DarkRightColumn {
+    height: 100vh;
+    width: 30%;
+    background-color: color(Black);
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    .DarkRightColumn-InnerWrap {
+      width: 100%;
+      height: 100%;
+      padding: 30% 7%;
+      padding-top: 45%;
+      padding-right: 4%;
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+
+      .LandingHeader {
+        font-size: 28px;
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
+
+      .LandingDescription {
+        font-size: 16px;
+        font-weight: 400;
+        width: 80%;
+        margin-bottom: 10px;
+        line-height: 20px;
+      }
+
+      .LandingReservationBtn {
+        border: none;
+        background-color: color(Black);
+        width: 128px;
+        justify-self: right;
+
+        .LandingReservationLink {
+          color: color(White);
+          font-size: 14px;
+          font-weight: 600;
+          margin-bottom: 3px;
+        }
+
+        .LandingReservationLinkUnderline {
+          width: 100%;
+          height: 2px;
+          background-color: color(White);
+        }
+      }
+
+      .Footer-CopyRight {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: 22px;
+        font-size: 12px;
+        font-weight: 300;
+        white-space: nowrap;
+      }
+    }
+
+  }
+
+  .BottomFeature {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 65px;
+    width: 82%;
+    max-width: 1200px;
+    height: 29vh;
+    max-height: 200px;
+    padding: 0 30px;
+    background-color: rgba(120, 118, 118, 0.153);
+    // filter: blur(8px);
+
+    .BottomFeature-InnerWrap {
+      width: 100%;
+      height: 100%;
+      display: flex;
+
+      .Feature {
+        flex: 1;
+        margin: 0 2%;
+        display: flex;
+
+        .FeatureImageFrame {
+          flex: 1;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          
+
+          .FeatureImage {
+            width: 180px;
+            height: 90%;
+            max-height: 170px;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.208);
+          }
+
+          .FeatureImage1 {
+            background-image: url('./Images/FeatureImage1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+
+          .FeatureImage2 {
+            background-image: url('./Images/FeatureImage2.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+
+        }
+
+        .Feature-Description {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height:  100%;
+          padding: 10px;
+
+          .Feature-Header {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            white-space: nowrap;
+          }
+
+          .Feature-Text {
+            font-size: 13px;
+            font-weight: 400;
+            margin-bottom: 10px;
+          }
+
+          .Feature-Button {
+            border: none;
+            background-color: transparent;
+            outline: none;
+            cursor: pointer;
+            width: 73px;
+            text-align: left;
+
+            .Feature-ButtonText {
+              color: color(White);
+              font-size: 14px;
+              font-weight: 300;
+              white-space: nowrap;
+            }
+
+            .Feature-ButtonUnderline {
+              width: 70%;
+              height: 1px;
+              background-color: color(White);
+            }
+
+            #Feature-ButtonUnderline2 {
+              width: 70%;
+            }
+          }
+
+          
+        }
+
+        
+      }
+
+    }
+
+    
+  }
+
+  @media screen and (max-width: 1111px){
+    #BottomFeature {
+      padding: 15px 0;
+    }
+    #Feature-Header {
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    #Feature-Text {
+      font-size: 11px;
+    }
+
+  
+  }
+
+  @media screen and (max-width: 950px){
+    #Footer-CopyRight {
+      display: none;
+    }
+    #BottomFeature {
+      width: 90%;
+      padding: 0 2%;
+    }
+  }
+
+  @media screen and (max-width:920px){
+    #LandingHeader {
+      font-size: 20px;
+    }
+    #LandingDescription {
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    #FeatureImage {
+      width: 160px;
+      height: 150px;
+    }
+     #Feature-Header {
+      font-size: 14px;
+    }
+    #Feature-Text {
+      font-size: 10px;
+
+    }
+  }
+
+  @media screen and (max-width: 850px){
+    
+  }
+
+  @media screen and (max-width: 776px){
+    #Feature {
+      margin: 0;
+    }
+    #Feature-Header {
+      margin-bottom: 7px;
+    }
+    #Feature-Text {
+      margin-bottom: 7px;
+    }
+    #Feature-Button {
+      width: 64px;
+    }
+    #Feature-ButtonText {
+      font-size: 12px;
+    }
+    #FeatureImage {
+      width: 145px;
+      height: 135px;
+    }
+  }
+
+  @media screen and (max-height: 770px){
+    #LandingHeader  {
+      font-size: 24px;
+    }
+    #LandingDescription {
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+
+  @media screen and (max-height: 664px){
+    #DarkRightColumn-InnerWrap {
+      padding-top: 30%;
+    }
+    #LandingHeader {
+      font-size: 17px;
+    }
+    #LandingDescription {
+      font-size: 12px;
+    }
+  }
+
+  @media screen and (max-height: 590px){
+    #LandingDescription {
+      width: 100%;
+    }
+  }
+
+
+  .MobileFeature {
+    width: 100%;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+      .MobileFeature1 {
+
+        .MobileSingleFeature1 {
+          .MobileFeatureImage {
+            background-image: url('./Images/FeatureImage1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+        }
+
+        .MobileSingleFeature2 {
+          .MobileFeatureImage {
+            background-image: url('./Images/FeatureImage2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+        }
+      }
+
+      .MobileFeature2 {
+
+        .MobileSingleFeature3 {
+          .MobileFeatureImage {
+            background-image: url('./Images/FeatureImage3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+        }
+
+        .MobileSingleFeature4 {
+          .MobileFeatureImage {
+            background-image: url('./Images/FeatureImage4.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+        }
+      }
+
+      .MobileFeature3 {
+
+        .MobileSingleFeature5 {
+          .MobileFeatureImage {
+            background-image: url('./Images/FeatureImage5.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+        }
+
+        .MobileSingleFeature6 {
+          .MobileFeatureImage {
+            background-image: url('./Images/FeatureImage6.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+        }
+      }
+
+      .MobileFeature4 {
+
+        .MobileSingleFeature7 {
+          .MobileFeatureImage {
+            background-image: url('./Images/FeatureImage7.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+        }
+
+        .MobileSingleFeature8 {
+          .MobileFeatureImage {
+            background-image: url('./Images/FeatureImage8.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+        }
+      }
+
+      
+
+  .MobileSingleFeature {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+
+
+    .MobileFeatureImageFrame {
+      flex: 3;
+      width: 100%;
+      height: 100%;
+
+      .MobileFeatureImage {
+        width: 120px;
+        height: 120px;
+      }
+    }
+
+    .MobileFeatureDescriptionWrap {
+      flex: 4;
+
+      .MobileFeatureTitle {
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+
+      .MobileFeatureText {
+        font-size: 12px;
+        margin-bottom: 5px;
+      }
+
+      .MobileFeatureButton {
+        border: none;
+        background-color: transparent;
+
+        .MobileFeatureButtonText {
+          color: color(White);
+          font-size: 13px;
+          margin-bottom: 2px;
+        }
+        
+        .MobileFeatureButtonTextUnderline {
+          width: 100%;
+          height: 2px;
+          background-color: color(White);
+        }
+      }
+    }
+  }
+
+  .ContactLocation {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .ContactLocation-Title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-top: 80px;
+      margin-bottom: 40px;
+      
+    }
+
+    .ContactLocation-InfoWrap {
+      width: 275px;
+      height: 125px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      border: 1px solid color(Yellow);
+      margin-bottom: 80px;
+
+      .ContactLocation-Info {
+        font-size: 13px;
+
+      }
+    }
+  }
+
+/* ---- Mobile Landing Components ---- */
